@@ -1,0 +1,587 @@
+<html lang="th"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เอไอเปลี่ยนอีสาน 2026 — aiisaan2026.com</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;800&amp;family=Noto+Sans+Thai:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        body {
+            font-family: 'Noto Sans Thai', system-ui, -apple-system, sans-serif;
+            background: #16022e;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        .display { font-family: 'Fraunces', serif; }
+        
+        .bg-mesh {
+            position: fixed; inset: 0; z-index: 0;
+            background: 
+                radial-gradient(1200px circle at 15% 15%, rgba(124, 58, 237, 0.35), transparent 45%),
+                radial-gradient(1000px circle at 85% 20%, rgba(250, 204, 21, 0.22), transparent 40%),
+                radial-gradient(900px circle at 50% 85%, rgba(91, 33, 182, 0.3), transparent 45%),
+                linear-gradient(180deg, #2e1065 0%, #5B21B6 30%, #4c1d95 65%, #1e1b4b 100%);
+        }
+        .bg-grid {
+            position: fixed; inset: 0; z-index: 0;
+            background-image: 
+                linear-gradient(rgba(250,204,21,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(250,204,21,0.05) 1px, transparent 1px);
+            background-size: 72px 72px;
+            mask-image: radial-gradient(ellipse at center, black 40%, transparent 70%);
+        }
+        .orb { position: absolute; border-radius: 9999px; filter: blur(90px); opacity: 0.6; animation: float 22s ease-in-out infinite; }
+        .orb1 { width: 420px; height: 420px; background: #7C3AED; top: -120px; left: -120px; }
+        .orb2 { width: 380px; height: 380px; background: #FACC15; top: 25%; right: -160px; animation-delay: -7s; }
+        .orb3 { width: 320px; height: 320px; background: #9333ea; bottom: -120px; left: 30%; animation-delay: -14s; }
+        @keyframes float { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(30px,-30px) scale(1.05)} 66%{transform:translate(-20px,20px) scale(0.95)} }
+
+        .glass {
+            background: linear-gradient(145deg, rgba(255,255,255,0.11), rgba(255,255,255,0.04));
+            backdrop-filter: blur(24px) saturate(160%);
+            -webkit-backdrop-filter: blur(24px) saturate(160%);
+            border: 1px solid rgba(250,204,21,0.18);
+            box-shadow: 0 10px 40px -12px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.08), 0 0 30px -15px rgba(250,204,21,0.25);
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .card { position: relative; overflow: hidden; opacity: 0; transform: translateY(24px); }
+        .card.in { opacity: 1; transform: translateY(0); }
+        .card::before { content: ''; position: absolute; inset: -1px; background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(250,204,21,0.18), transparent 40%); opacity: 0; transition: opacity 0.4s; pointer-events: none; z-index: 0; }
+        .card:hover::before { opacity: 1; }
+        .card:hover { transform: translateY(-6px) scale(1.015); border-color: rgba(250,204,21,0.45); box-shadow: 0 25px 70px -20px rgba(0,0,0,0.8), 0 0 0 1px rgba(250,204,21,0.15) inset, 0 0 50px -10px var(--glow); }
+        .card-content { position: relative; z-index: 1; }
+
+        .icon-wrap {
+            width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center; font-size: 28px;
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.25), 0 10px 24px -10px var(--glow);
+            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            position: relative; background: linear-gradient(135deg,#FACC15,#EAB308);
+        }
+        .icon-wrap::after { content: ''; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(180deg, rgba(255,255,255,0.3), transparent 60%); opacity: 0.6; }
+        .card:hover .icon-wrap { transform: scale(1.08) rotate(-4deg); }
+
+        .bullet { display: flex; gap: 10px; align-items: flex-start; color: #e2d9f3; line-height: 1.65; }
+        .bullet svg { flex-shrink: 0; margin-top: 3px; color: rgba(250,204,21,0.9); }
+        .bullet strong { color: #fef3c7; font-weight: 600; }
+
+        .title-glow {
+            background: linear-gradient(90deg, #fff 0%, #fef9c3 15%, #fde047 30%, #facc15 50%, #fde047 70%, #fef9c3 85%, #fff 100%);
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+            background-size: 200% auto; animation: shimmer 8s linear infinite;
+        }
+        @keyframes shimmer { to { background-position: 200% center; } }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.top-0{top:0px}.-left-2{left:-0.5rem}.-right-2{right:-0.5rem}.bottom-6{bottom:1.5rem}.bottom-\[22\%\]{bottom:22%}.left-1\/2{left:50%}.top-\[18\%\]{top:18%}.z-10{z-index:10}.z-50{z-index:50}.z-\[100\]{z-index:100}.mx-auto{margin-left:auto;margin-right:auto}.-mt-0\.5{margin-top:-0.125rem}.mb-12{margin-bottom:3rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.ml-2{margin-left:0.5rem}.mt-1{margin-top:0.25rem}.mt-10{margin-top:2.5rem}.mt-14{margin-top:3.5rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.mt-5{margin-top:1.25rem}.mb-1{margin-bottom:0.25rem}.mb-10{margin-bottom:2.5rem}.mb-3{margin-bottom:0.75rem}.mt-0\.5{margin-top:0.125rem}.mt-20{margin-top:5rem}.mt-24{margin-top:6rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.aspect-\[4\/5\]{aspect-ratio:4/5}.h-2{height:0.5rem}.h-9{height:2.25rem}.h-12{height:3rem}.h-14{height:3.5rem}.h-8{height:2rem}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-2{width:0.5rem}.w-9{width:2.25rem}.w-full{width:100%}.w-12{width:3rem}.w-14{width:3.5rem}.w-8{width:2rem}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-\[1320px\]{max-width:1320px}.max-w-\[340px\]{max-width:340px}.flex-shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.translate-y-20{--tw-translate-y:5rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.scroll-mt-28{scroll-margin-top:7rem}.auto-rows-fr{grid-auto-rows:minmax(0, 1fr)}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.place-items-center{place-items:center}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-5{gap:1.25rem}.gap-7{gap:1.75rem}.gap-0{gap:0px}.gap-1\.5{gap:0.375rem}.gap-10{gap:2.5rem}.gap-2\.5{gap:0.625rem}.gap-3\.5{gap:0.875rem}.gap-4{gap:1rem}.gap-8{gap:2rem}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.rounded-2xl{border-radius:1rem}.rounded-\[28px\]{border-radius:28px}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-3xl{border-radius:1.5rem}.rounded-\[32px\]{border-radius:32px}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-amber-300\/20{border-color:rgb(252 211 77 / 0.2)}.border-amber-300\/25{border-color:rgb(252 211 77 / 0.25)}.border-amber-300\/30{border-color:rgb(252 211 77 / 0.3)}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-amber-300\/15{border-color:rgb(252 211 77 / 0.15)}.border-amber-300\/40{border-color:rgb(252 211 77 / 0.4)}.bg-amber-400{--tw-bg-opacity:1;background-color:rgb(251 191 36 / var(--tw-bg-opacity, 1))}.bg-amber-400\/10{background-color:rgb(251 191 36 / 0.1)}.bg-white\/5{background-color:rgb(255 255 255 / 0.05)}.bg-amber-400\/15{background-color:rgb(251 191 36 / 0.15)}.bg-amber-400\/20{background-color:rgb(251 191 36 / 0.2)}.bg-amber-400\/5{background-color:rgb(251 191 36 / 0.05)}.bg-black\/20{background-color:rgb(0 0 0 / 0.2)}.bg-black\/30{background-color:rgb(0 0 0 / 0.3)}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.bg-\[radial-gradient\(circle_at_30\%_20\%\2c rgba\(250\2c 204\2c 21\2c 0\.18\)\2c transparent_60\%\)\]{background-image:radial-gradient(circle at 30% 20%,rgba(250,204,21,0.18),transparent 60%)}.from-amber-300{--tw-gradient-from:#fcd34d var(--tw-gradient-from-position);--tw-gradient-to:rgb(252 211 77 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-amber-400{--tw-gradient-from:#fbbf24 var(--tw-gradient-from-position);--tw-gradient-to:rgb(251 191 36 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-yellow-500{--tw-gradient-to:#eab308 var(--tw-gradient-to-position)}.object-cover{object-fit:cover}.p-3{padding:0.75rem}.p-5{padding:1.25rem}.p-7{padding:1.75rem}.p-2\.5{padding:0.625rem}.p-4{padding:1rem}.p-8{padding:2rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-7{padding-left:1.75rem;padding-right:1.75rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-12{padding-bottom:3rem}.pt-14{padding-top:3.5rem}.pt-8{padding-top:2rem}.pt-6{padding-top:1.5rem}.text-center{text-align:center}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[14\.5px\]{font-size:14.5px}.text-\[14px\]{font-size:14px}.text-\[15px\]{font-size:15px}.text-\[clamp\(28px\2c 4\.5vw\2c 48px\)\]{font-size:clamp(28px,4.5vw,48px)}.text-\[clamp\(42px\2c 7vw\2c 88px\)\]{font-size:clamp(42px,7vw,88px)}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[12\.5px\]{font-size:12.5px}.text-\[clamp\(28px\2c 4\.5vw\2c 52px\)\]{font-size:clamp(28px,4.5vw,52px)}.text-lg{font-size:1.125rem;line-height:1.75rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-\[0\.9\]{line-height:0.9}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-0.025em}.tracking-widest{letter-spacing:0.1em}.text-amber-200{--tw-text-opacity:1;color:rgb(253 230 138 / var(--tw-text-opacity, 1))}.text-amber-200\/70{color:rgb(253 230 138 / 0.7)}.text-amber-200\/80{color:rgb(253 230 138 / 0.8)}.text-amber-200\/90{color:rgb(253 230 138 / 0.9)}.text-purple-100\/90{color:rgb(243 232 255 / 0.9)}.text-purple-200\/70{color:rgb(233 213 255 / 0.7)}.text-purple-200\/80{color:rgb(233 213 255 / 0.8)}.text-purple-950{--tw-text-opacity:1;color:rgb(59 7 100 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-amber-100{--tw-text-opacity:1;color:rgb(254 243 199 / var(--tw-text-opacity, 1))}.text-amber-100\/80{color:rgb(254 243 199 / 0.8)}.text-amber-100\/90{color:rgb(254 243 199 / 0.9)}.text-purple-100\/85{color:rgb(243 232 255 / 0.85)}.text-purple-200\/75{color:rgb(233 213 255 / 0.75)}.text-purple-300\/60{color:rgb(216 180 254 / 0.6)}.placeholder-purple-200\/40::placeholder{color:rgb(233 213 255 / 0.4)}.opacity-0{opacity:0}.opacity-70{opacity:0.7}.opacity-\[0\.07\]{opacity:0.07}.shadow-\[0_0_10px_rgba\(250\2c 204\2c 21\2c 0\.8\)\]{--tw-shadow:0 0 10px rgba(250,204,21,0.8);--tw-shadow-colored:0 0 10px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_10px_30px_-10px_rgba\(250\2c 204\2c 21\2c 0\.7\)\]{--tw-shadow:0 10px 30px -10px rgba(250,204,21,0.7);--tw-shadow-colored:0 10px 30px -10px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_10px_40px_-15px_rgba\(250\2c 204\2c 21\2c 0\.3\)\]{--tw-shadow:0 10px 40px -15px rgba(250,204,21,0.3);--tw-shadow-colored:0 10px 40px -15px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_5px_20px_-5px_rgba\(250\2c 204\2c 21\2c 0\.6\)\]{--tw-shadow:0 5px 20px -5px rgba(250,204,21,0.6);--tw-shadow-colored:0 5px 20px -5px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[inset_0_1px_1px_rgba\(255\2c 255\2c 255\2c 0\.5\)\]{--tw-shadow:inset 0 1px 1px rgba(255,255,255,0.5);--tw-shadow-colored:inset 0 1px 1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_8px_24px_-8px_rgba\(250\2c 204\2c 21\2c 0\.8\)\]{--tw-shadow:0 8px 24px -8px rgba(250,204,21,0.8);--tw-shadow-colored:0 8px 24px -8px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.drop-shadow-\[0_20px_40px_rgba\(0\2c 0\2c 0\2c 0\.4\)\]{--tw-drop-shadow:drop-shadow(0 20px 40px rgba(0,0,0,0.4));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-500{transition-duration:500ms}.hover\:border-amber-300\/50:hover{border-color:rgb(252 211 77 / 0.5)}.hover\:bg-white\/5:hover{background-color:rgb(255 255 255 / 0.05)}.hover\:text-amber-200:hover{--tw-text-opacity:1;color:rgb(253 230 138 / var(--tw-text-opacity, 1))}.hover\:brightness-110:hover{--tw-brightness:brightness(1.1);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.focus\:border-amber-300\/50:focus{border-color:rgb(252 211 77 / 0.5)}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.disabled\:cursor-not-allowed:disabled{cursor:not-allowed}.disabled\:opacity-60:disabled{opacity:0.6}@keyframes bounce{0%, 100%{transform:translateY(-25%);animation-timing-function:cubic-bezier(0.8,0,1,1)}50%{transform:none;animation-timing-function:cubic-bezier(0,0,0.2,1)}}.group:hover .group-hover\:animate-bounce{animation:bounce 1s infinite}@media (min-width: 640px){.sm\:w-auto{width:auto}.sm\:flex-row{flex-direction:row}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}}@media (min-width: 768px){.md\:col-span-2{grid-column:span 2 / span 2}.md\:col-span-3{grid-column:span 3 / span 3}.md\:block{display:block}.md\:flex{display:flex}.md\:hidden{display:none}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:gap-6{gap:1.5rem}.md\:p-10{padding:2.5rem}.md\:p-12{padding:3rem}.md\:pt-16{padding-top:4rem}.md\:pt-24{padding-top:6rem}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}}@media (min-width: 1024px){.lg\:col-span-1{grid-column:span 1 / span 1}.lg\:col-span-2{grid-column:span 2 / span 2}.lg\:col-span-3{grid-column:span 3 / span 3}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}.lg\:border-b-0{border-bottom-width:0px}.lg\:border-r{border-right-width:1px}}</style></head>
+<body class="min-h-screen relative">
+    <div class="bg-mesh"></div>
+    <div class="bg-grid"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-50">
+        <div class="max-w-[1320px] mx-auto px-4 sm:px-6">
+            <div class="mt-3 glass rounded-2xl border-amber-300/25 px-4 sm:px-6 py-3 flex items-center justify-between shadow-[0_10px_40px_-15px_rgba(250,204,21,0.3)]">
+                <a href="#home" class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-300 to-yellow-500 grid place-items-center text-purple-950 font-black shadow-[inset_0_1px_1px_rgba(255,255,255,0.5)]">AI</div>
+                    <div>
+                        <div class="font-bold tracking-tight leading-none text-white">aiisaan2026.com</div>
+                        <div class="text-[10px] text-amber-200/70 -mt-0.5 tracking-widest uppercase">ม่วง-คำ</div>
+                    </div>
+                </a>
+                <div class="hidden md:flex items-center gap-7 text-[14px] font-medium">
+                    <a href="#home" class="hover:text-amber-200 transition">หน้าหลัก</a>
+                    <a href="#industries" class="hover:text-amber-200 transition">11 วงการ</a>
+                    <a href="#isan" class="hover:text-amber-200 transition">เกษตรเฮา</a>
+                    <a href="#contact" class="hover:text-amber-200 transition">ติดต่อเฮา</a>
+                    <a href="#industries" class="ml-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-400 to-yellow-500 text-purple-950 font-semibold shadow-[0_5px_20px_-5px_rgba(250,204,21,0.6)] hover:brightness-110 transition">เบิ่งข้อมูล</a>
+                </div>
+                <button id="menuBtn" class="md:hidden w-9 h-9 grid place-items-center rounded-lg bg-white/5 border border-white/10">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+            <div id="mobileMenu" class="md:hidden hidden mt-2 glass rounded-2xl p-3 border-amber-300/20">
+                <a href="#home" class="block px-3 py-2.5 rounded-xl hover:bg-white/5">หน้าหลัก</a>
+                <a href="#industries" class="block px-3 py-2.5 rounded-xl hover:bg-white/5">11 วงการ</a>
+                <a href="#isan" class="block px-3 py-2.5 rounded-xl hover:bg-white/5">เกษตรเฮา</a>
+                <a href="#contact" class="block px-3 py-2.5 rounded-xl hover:bg-white/5">ติดต่อเฮา</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="relative z-10 max-w-[1320px] mx-auto px-6">
+        <!-- HERO -->
+        <section id="home" class="scroll-mt-28 pt-14 md:pt-24 pb-12 text-center">
+            <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 mb-6 text-xs tracking-widest font-semibold text-amber-200/90 uppercase">
+                <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse shadow-[0_0_10px_rgba(250,204,21,0.8)]"></span>
+                เอไอเพื่ออีสาน • 2026
+            </div>
+            <h1 class="display text-[clamp(42px,7vw,88px)] leading-[0.9] tracking-tight title-glow font-bold">
+                เอไอมาเปลี่ยนอีสานเฮา 2026
+            </h1>
+            <p class="mt-5 text-xl md:text-2xl text-purple-100/90 font-medium max-w-3xl mx-auto">
+                จากข้าวหอมมะลิทุ่งกุลา ฮอดมันสำปะหลังอุบล
+            </p>
+            <p class="mt-3 text-purple-200/70 max-w-2xl mx-auto">หม่องรวมความรู้ให้พี่น้องเกษตรกร เอสเอ็มอี และหน่วยงานบ้านเฮา — 11 วงการที่ใช้เอไอแต้ๆ ปี 2026</p>
+            
+            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a href="#industries" class="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-gradient-to-r from-amber-400 to-yellow-500 text-purple-950 font-bold text-[15px] shadow-[0_10px_30px_-10px_rgba(250,204,21,0.7)] hover:brightness-110 transition flex items-center justify-center gap-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"></path></svg>
+                    เบิ่งข้อมูลเลย
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-7 py-3.5 rounded-2xl glass border-amber-300/30 font-semibold text-[15px] hover:border-amber-300/50 transition flex items-center justify-center gap-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    ติดต่อขอคำแนะนำ
+                </a>
+            </div>
+
+            <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-3 max-w-4xl mx-auto">
+                <div class="glass rounded-2xl p-5 border-amber-300/20">
+                    <div class="text-3xl md:text-4xl font-bold text-amber-200">78%</div>
+                    <div class="text-sm text-purple-200/80 mt-1">บริษัทไทยใส่เอไอแล้ว</div>
+                </div>
+                <div class="glass rounded-2xl p-5 border-amber-300/20">
+                    <div class="text-3xl md:text-4xl font-bold text-amber-200">$951</div>
+                    <div class="text-sm text-purple-200/80 mt-1">ราคาข้าวหอมต่อตัน</div>
+                </div>
+                <div class="glass rounded-2xl p-5 border-amber-300/20">
+                    <div class="text-3xl md:text-4xl font-bold text-amber-200">40%</div>
+                    <div class="text-sm text-purple-200/80 mt-1">ลดยาโรคข้าวด้วยโดรน</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11 INDUSTRIES -->
+        <section id="industries" class="scroll-mt-28 pt-8 md:pt-16">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="display text-[clamp(28px,4.5vw,48px)] font-bold text-white">11 วงการที่เอไอเปลี่ยนคัก</h2>
+                <p class="mt-3 text-purple-200/80">เว้าแบบบ้านๆ เข้าใจง่าย บ่ต้องจบดอกเตอร์กะฮู้เรื่อง</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 auto-rows-fr">
+                <!-- 1 Healthcare -->
+                <article class="card glass rounded-[28px] p-7 in" style="--glow: #FACC15;">
+                    <div class="card-content">
+                        <div class="flex items-start justify-between mb-5"><div class="icon-wrap">🩺</div><span class="text-[11px] px-2.5 py-1 rounded-full bg-amber-400/10 border border-amber-300/20 text-amber-200/80">Healthcare</span></div>
+                        <h3 class="text-xl font-semibold text-white">โรงหมอ</h3>
+                        <div class="text-[11px] text-amber-200/70 mb-4 uppercase tracking-widest">หมอ-พยาบาล</div>
+                        <ul class="space-y-3 text-[14.5px]">
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg><span>เอไอซอยหมอวินิจฉัย <strong>ไวขึ้น 3 เท่า</strong></span></li>
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg><span>เขียนเอกสารยาแทนคน</span></li>
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg><span>จัดยาให้ตรงกับแต่ละคน</span></li>
+                        </ul>
+                    </div>
+                </article>
+                <!-- 2 Finance -->
+                <article class="card glass rounded-[28px] p-7 in" style="--glow: #FACC15;">
+                    <div class="card-content">
+                        <div class="flex items-start justify-between mb-5"><div class="icon-wrap">💳</div><span class="text-[11px] px-2.5 py-1 rounded-full bg-amber-400/10 border border-amber-300/20 text-amber-200/80">Finance</span></div>
+                        <h3 class="text-xl font-semibold text-white">เงินธนาคาร</h3>
+                        <div class="text-[11px] text-amber-200/70 mb-4 uppercase tracking-widest">การเงิน</div>
+                        <ul class="space-y-3 text-[14.5px]">
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>จับโจรออนไลน์แบบทันที</span></li>
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>เอไอประเมินความเสี่ยงไวคัก</span></li>
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>ตรวจเอกสาร KYC อัตโนมัติ</span></li>
+                        </ul>
+                    </div>
+                </article>
+                <!-- 3 Retail -->
+                <article class="card glass rounded-[28px] p-7 in" style="--glow: #FACC15;">
+                    <div class="card-content">
+                        <div class="flex items-start justify-between mb-5"><div class="icon-wrap">🛍️</div><span class="text-[11px] px-2.5 py-1 rounded-full bg-amber-400/10 border border-amber-300/20 text-amber-200/80">Retail</span></div>
+                        <h3 class="text-xl font-semibold text-white">ขายของออนไลน์</h3>
+                        <div class="text-[11px] text-amber-200/70 mb-4 uppercase tracking-widest">ค้าขาย</div>
+                        <ul class="space-y-3 text-[14.5px]">
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>เอไอเฮ็ดรูปสินค้า ลองเสื้อในจอ</span></li>
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>เลือกอินฟลูฯ ยอดถึงแม่น</span></li>
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>เพิ่มยอดขาย <strong>~20%</strong></span></li>
+                        </ul>
+                    </div>
+                </article>
+                <!-- 4 Manufacturing -->
+                <article class="card glass rounded-[28px] p-7 in" style="--glow: #FACC15;">
+                    <div class="card-content">
+                        <div class="flex items-start justify-between mb-5"><div class="icon-wrap">🏭</div><span class="text-[11px] px-2.5 py-1 rounded-full bg-amber-400/10 border border-amber-300/20 text-amber-200/80">Manufacturing</span></div>
+                        <h3 class="text-xl font-semibold text-white">โรงงาน</h3>
+                        <div class="text-[11px] text-amber-200/70 mb-4 uppercase tracking-widest">การผลิต</div>
+                        <ul class="space-y-3 text-[14.5px]">
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>ซ่อมก่อนพัง ลดเครื่องหยุด 40%</span></li>
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>จำลองโรงงานในคอมก่อนเฮ็ดจริง</span></li>
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>กล้องเอไอตรวจของเสีย</span></li>
+                        </ul>
+                    </div>
+                </article>
+                <!-- 5 Logistics -->
+                <article class="card glass rounded-[28px] p-7 in" style="--glow: #FACC15;">
+                    <div class="card-content">
+                        <div class="flex items-start justify-between mb-5"><div class="icon-wrap">🚚</div><span class="text-[11px] px-2.5 py-1 rounded-full bg-amber-400/10 border border-amber-300/20 text-amber-200/80">Logistics</span></div>
+                        <h3 class="text-xl font-semibold text-white">รถขนส่ง</h3>
+                        <div class="text-[11px] text-amber-200/70 mb-4 uppercase tracking-widest">โลจิสติกส์</div>
+                        <ul class="space-y-3 text-[14.5px]">
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>เอไอหาเส้นทาง ประหยัดน้ำมัน</span></li>
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>รถบ่มีคนขับ โดรนส่งของ</span></li>
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>ฮู้ว่าของอยู่ไสแบบสดๆ</span></li>
+                        </ul>
+                    </div>
+                </article>
+                <!-- 6 Agriculture -->
+                <article class="card glass rounded-[28px] p-7 lg:col-span-1 in" style="--glow: #FACC15;">
+                    <div class="card-content">
+                        <div class="flex items-start justify-between mb-5"><div class="icon-wrap">🌾</div><span class="text-[11px] px-2.5 py-1 rounded-full bg-amber-400/10 border border-amber-300/20 text-amber-200/80">Agriculture</span></div>
+                        <h3 class="text-xl font-semibold text-white">เฮ็ดนาเฮ็ดไร่</h3>
+                        <div class="text-[11px] text-amber-200/70 mb-4 uppercase tracking-widest">เกษตรอีสาน</div>
+                        <ul class="space-y-3 text-[14.5px]">
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>เอไอเบิ่งดินเบิ่งน้ำ (RICEST, SCG)</span></li>
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>โดรนพ่นยา เบิ่งโรคใบข้าว</span></li>
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>ทำนายผลผลิตแม่น <strong>85%</strong></span></li>
+                        </ul>
+                    </div>
+                </article>
+                <!-- 7 Professional -->
+                <article class="card glass rounded-[28px] p-7 in" style="--glow: #FACC15;">
+                    <div class="card-content">
+                        <div class="flex items-start justify-between mb-5"><div class="icon-wrap">💼</div><span class="text-[11px] px-2.5 py-1 rounded-full bg-amber-400/10 border border-amber-300/20 text-amber-200/80">Services</span></div>
+                        <h3 class="text-xl font-semibold text-white">งานออฟฟิศ</h3>
+                        <div class="text-[11px] text-amber-200/70 mb-4 uppercase tracking-widest">วิชาชีพ</div>
+                        <ul class="space-y-3 text-[14.5px]">
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>มีเอไอเป็นผู้ซอย</span></li>
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>เอไออ่านสัญญา สรุปให้</span></li>
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>ได้ข้อมูลไวขึ้น 3 เท่า</span></li>
+                        </ul>
+                    </div>
+                </article>
+                <!-- 8 Marketing -->
+                <article class="card glass rounded-[28px] p-7 in" style="--glow: #FACC15;">
+                    <div class="card-content">
+                        <div class="flex items-start justify-between mb-5"><div class="icon-wrap">🎨</div><span class="text-[11px] px-2.5 py-1 rounded-full bg-amber-400/10 border border-amber-300/20 text-amber-200/80">Marketing</span></div>
+                        <h3 class="text-xl font-semibold text-white">การตลาด</h3>
+                        <div class="text-[11px] text-amber-200/70 mb-4 uppercase tracking-widest">สื่อ</div>
+                        <ul class="space-y-3 text-[14.5px]">
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>เอไอเฮ็ดแคมเปญครบวงจร</span></li>
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>ตัดต่อคลิป ทำเสียงสังเคราะห์</span></li>
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>เปลี่ยนโฆษณาตามคนเบิ่ง</span></li>
+                        </ul>
+                    </div>
+                </article>
+                <!-- 9 Education -->
+                <article class="card glass rounded-[28px] p-7 in" style="--glow: #FACC15;">
+                    <div class="card-content">
+                        <div class="flex items-start justify-between mb-5"><div class="icon-wrap">🎓</div><span class="text-[11px] px-2.5 py-1 rounded-full bg-amber-400/10 border border-amber-300/20 text-amber-200/80">Education</span></div>
+                        <h3 class="text-xl font-semibold text-white">โรงเรียน</h3>
+                        <div class="text-[11px] text-amber-200/70 mb-4 uppercase tracking-widest">การศึกษา</div>
+                        <ul class="space-y-3 text-[14.5px]">
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>เอไอติวส่วนตัว จำดีขึ้น <strong>25%</strong></span></li>
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>เรียนตามความเก่งของเฮา</span></li>
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>เช็คว่าขาดทักษะหยัง</span></li>
+                        </ul>
+                    </div>
+                </article>
+                <!-- 10 Energy -->
+                <article class="card glass rounded-[28px] p-7 in" style="--glow: #FACC15;">
+                    <div class="card-content">
+                        <div class="flex items-start justify-between mb-5"><div class="icon-wrap">⚡</div><span class="text-[11px] px-2.5 py-1 rounded-full bg-amber-400/10 border border-amber-300/20 text-amber-200/80">Energy</span></div>
+                        <h3 class="text-xl font-semibold text-white">ไฟฟ้า</h3>
+                        <div class="text-[11px] text-amber-200/70 mb-4 uppercase tracking-widest">พลังงาน</div>
+                        <ul class="space-y-3 text-[14.5px]">
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>สมาร์ทกริดจัดไฟอัตโนมัติ</span></li>
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>ทำนายไฟดับล่วงหน้า</span></li>
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>ใส่ไฟแดดไฟลมเข้าระบบ</span></li>
+                        </ul>
+                    </div>
+                </article>
+                <!-- 11 Mining -->
+                <article class="card glass rounded-[28px] p-7 in" style="--glow: #FACC15;">
+                    <div class="card-content">
+                        <div class="flex items-start justify-between mb-5"><div class="icon-wrap">⛏️</div><span class="text-[11px] px-2.5 py-1 rounded-full bg-amber-400/10 border border-amber-300/20 text-amber-200/80">Mining</span></div>
+                        <h3 class="text-xl font-semibold text-white">เหมืองแร่</h3>
+                        <div class="text-[11px] text-amber-200/70 mb-4 uppercase tracking-widest">ทรัพยากร</div>
+                        <ul class="space-y-3 text-[14.5px]">
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>ทำนายเครื่องสิพังก่อน</span></li>
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>รถขุดแบบบ่ต้องมีคนขับ</span></li>
+                            <li class="bullet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6.5 11.5L2.5 7.5" stroke="currentColor" stroke-width="1.5"></path></svg><span>เอไอซอยหาแร่ใต้ดิน</span></li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ISAN SPECIAL -->
+        <section id="isan" class="scroll-mt-28 mt-24">
+            <div class="text-center mb-10">
+                <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 mb-4 text-xs font-semibold text-amber-200/90 uppercase tracking-widest"><span>🇹🇭</span> เด่นคัก</div>
+                <h2 class="display text-[clamp(28px,4.5vw,52px)] font-bold text-white">เกษตรอีสานเฮา: ข้าวหอมกับมันสำปะหลัง</h2>
+                <p class="mt-2 text-purple-200/80 max-w-2xl mx-auto">ข้อมูลแต้จาก RICEST x GISTDA, สศก., พี่น้องร้อยเอ็ด-สุรินทร์-อุบล</p>
+            </div>
+
+            <article class="card glass rounded-[32px] overflow-hidden in" style="--glow: #FACC15; border-color: rgba(250,204,21,0.45); background: linear-gradient(145deg, rgba(250,204,21,0.14), rgba(124,58,237,0.10)); box-shadow: 0 0 70px -20px rgba(250,204,21,0.5), inset 0 1px 0 rgba(255,255,255,0.1);">
+                <div class="grid lg:grid-cols-5 gap-0">
+                    <!-- Map -->
+                    <div class="lg:col-span-2 relative p-8 md:p-10 bg-[radial-gradient(circle_at_30%_20%,rgba(250,204,21,0.18),transparent_60%)] border-b lg:border-b-0 lg:border-r border-amber-300/15">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-300 to-yellow-500 grid place-items-center text-2xl shadow-[0_8px_24px_-8px_rgba(250,204,21,0.8)]">🌾</div>
+                            <div>
+                                <div class="font-bold text-white text-lg leading-tight">แผนที่อีสาน</div>
+                                <div class="text-xs text-amber-200/80">20 จังหวัด • พื้นที่เฮ็ดเกษตร</div>
+                            </div>
+                        </div>
+                        <!-- Inline SVG Map -->
+                        <div class="relative aspect-[4/5] max-w-[340px] mx-auto">
+                            <svg viewBox="0 0 320 400" class="w-full h-full drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+                                <defs>
+                                    <linearGradient id="isanGold" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="#fde047"></stop>
+                                        <stop offset="50%" stop-color="#facc15"></stop>
+                                        <stop offset="100%" stop-color="#eab308"></stop>
+                                    </linearGradient>
+                                    <filter id="glow"><feGaussianBlur stdDeviation="8" result="blur"></feGaussianBlur><feComposite in="SourceGraphic" in2="blur" operator="over"></feComposite></filter>
+                                </defs>
+                                <path d="M160 20 C185 35 210 60 225 90 C240 125 235 165 225 200 C215 235 200 270 185 300 C170 330 150 355 130 375 C110 355 90 330 75 300 C60 270 45 235 35 200 C25 165 20 125 35 90 C50 60 75 35 100 20 C120 12 140 12 160 20Z" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="3"></path>
+                                <path d="M160 70 C190 82 215 105 228 135 C235 160 230 188 218 215 C205 240 185 260 162 275 C145 265 128 245 118 220 C108 195 105 168 112 142 C120 115 137 90 160 70Z" fill="url(#isanGold)" opacity="0.92" stroke="#fff7d6" stroke-width="2.5" filter="url(#glow)"></path>
+                                <g fill="#4c1d95" stroke="white" stroke-width="1.2">
+                                    <circle cx="155" cy="155" r="6"></circle><circle cx="185" cy="175" r="6"></circle><circle cx="200" cy="210" r="6"></circle><circle cx="165" cy="225" r="6"></circle><circle cx="135" cy="195" r="6"></circle>
+                                </g>
+                                <g font-family="Noto Sans Thai" font-size="11" fill="#fef3c7" font-weight="600">
+                                    <text x="158" y="142">ร้อยเอ็ด</text>
+                                    <text x="188" y="162">สุรินทร์</text>
+                                    <text x="203" y="228" text-anchor="middle">อุบล</text>
+                                    <text x="128" y="245">นครราชสีมา</text>
+                                </g>
+                            </svg>
+                            <div class="absolute top-[18%] -left-2 glass rounded-xl px-3 py-1.5 text-xs font-medium border-amber-300/30 flex items-center gap-1.5"><span class="text-lg leading-none">🌾</span> ทุ่งกุลา</div>
+                            <div class="absolute bottom-[22%] -right-2 glass rounded-xl px-3 py-1.5 text-xs font-medium border-amber-300/30 flex items-center gap-1.5"><span class="text-lg leading-none">🥔</span> มันสำปะหลัง</div>
+                        </div>
+                        <div class="mt-6 grid grid-cols-3 gap-2 text-center">
+                            <div class="rounded-xl bg-black/20 border border-white/10 p-2.5"><div class="text-lg font-bold text-amber-200">14 มื้อ</div><div class="text-[10px] text-purple-200/70">เตือนน้ำท่วม</div></div>
+                            <div class="rounded-xl bg-black/20 border border-white/10 p-2.5"><div class="text-lg font-bold text-amber-200">92%</div><div class="text-[10px] text-purple-200/70">ตรวจโรคแม่น</div></div>
+                            <div class="rounded-xl bg-black/20 border border-white/10 p-2.5"><div class="text-lg font-bold text-amber-200">30%</div><div class="text-[10px] text-purple-200/70">ลดเสียหาย</div></div>
+                        </div>
+                    </div>
+                    <!-- Content -->
+                    <div class="lg:col-span-3 p-8 md:p-10">
+                        <h3 class="text-2xl font-bold text-white mb-1">ความรู้เกษตรอีสาน 2026</h3>
+                        <p class="text-amber-200/80 text-sm mb-6">เอไอ ดาวเทียม โดรน ซอยกันเต็มที่</p>
+                        <div class="space-y-4">
+                            <div class="flex gap-3.5"><div class="mt-0.5 w-8 h-8 rounded-lg bg-amber-400/15 border border-amber-300/25 grid place-items-center flex-shrink-0">🛰️</div><div><div class="font-semibold text-amber-100">ข้าวหอมมะลิทุ่งกุลา</div><p class="text-[14px] text-purple-100/85 leading-relaxed">เอไอเบิ่งภาพดาวเทียมกับเซ็นเซอร์ดิน คาดน้ำท่วม-น้ำแล้งล่วงหน้า <strong class="text-amber-200">14 มื้อ</strong> ลดเสียหายได้ <strong class="text-amber-200">30%</strong> <span class="opacity-70">(RICEST x GISTDA)</span></p></div></div>
+                            <div class="flex gap-3.5"><div class="mt-0.5 w-8 h-8 rounded-lg bg-amber-400/15 border border-amber-300/25 grid place-items-center flex-shrink-0">🚁</div><div><div class="font-semibold text-amber-100">โดรน DJI Agras + เอไอ</div><p class="text-[14px] text-purple-100/85 leading-relaxed">ตรวจโรคไหม้ใบข้าวแม่น <strong class="text-amber-200">92%</strong> อยู่ร้อยเอ็ด-สุรินทร์ พี่น้องลดยาฆ่าเชื้อราได้ <strong class="text-amber-200">40%</strong></p></div></div>
+                            <div class="flex gap-3.5"><div class="mt-0.5 w-8 h-8 rounded-lg bg-amber-400/15 border border-amber-300/25 grid place-items-center flex-shrink-0">🥔</div><div><div class="font-semibold text-amber-100">มันสำปะหลังอุบล-โคราช</div><p class="text-[14px] text-purple-100/85 leading-relaxed">โมเดลเอไอทำนายแป้ง <strong class="text-amber-200">25-30%</strong> ก่อนขุด 7 มื้อ ซอยโรงงานตั้งราคาเป็นธรรม <span class="opacity-70">(สศก. ปี 69)</span></p></div></div>
+                            <div class="flex gap-3.5"><div class="mt-0.5 w-8 h-8 rounded-lg bg-amber-400/15 border border-amber-300/25 grid place-items-center flex-shrink-0">📱</div><div><div class="font-semibold text-amber-100">แอป "Isan Agri AI" (ม.ขอนแก่น)</div><p class="text-[14px] text-purple-100/85 leading-relaxed">บอกมื้อปลูก-มื้อเกี่ยวส่วนตัว ตามอากาศบ้านเฮา มื้อนี้พิมาย <strong class="text-amber-200">28°C</strong> ชื้น <strong class="text-amber-200">79%</strong></p></div></div>
+                            <div class="flex gap-3.5"><div class="mt-0.5 w-8 h-8 rounded-lg bg-amber-400/15 border border-amber-300/25 grid place-items-center flex-shrink-0">💵</div><div><div class="font-semibold text-amber-100">ราคาส่งออก</div><p class="text-[14px] text-purple-100/85 leading-relaxed">ข้าวหอมมะลิเฉลี่ย <strong class="text-amber-200">$951/ตัน</strong> ปี 2024-25 ขายดีสุดอเมริกาก้าฮอด <strong class="text-amber-200">45.7%</strong></p></div></div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="scroll-mt-28 mt-24">
+            <div class="glass rounded-[32px] p-8 md:p-12 border-amber-300/25 relative overflow-hidden">
+                <div class="absolute inset-0 opacity-[0.07]" style="background-image: radial-gradient(circle at 1px 1px, #facc15 1px, transparent 0); background-size: 24px 24px;"></div>
+                <div class="relative z-10 grid md:grid-cols-5 gap-8 items-center">
+                    <div class="md:col-span-3">
+                        <h3 class="display text-3xl md:text-4xl font-bold text-white">อยากให้เอไอซอยเฮ็ดนา? ฝากเบอร์ไว้เลย</h3>
+                        <p class="mt-3 text-purple-100/85">ทีมงานคนอีสานแท้ๆ สิโทรกลับให้คำแนะนำฟรี บ่มีค่าใช้จ่าย บ่บังคับซื้อหยังดอก</p>
+                        <div class="mt-6 flex flex-wrap gap-2.5">
+                            <span class="px-3 py-1.5 rounded-lg bg-amber-400/10 border border-amber-300/20 text-xs text-amber-100">คุยภาษาอีสานโลด</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-amber-400/10 border border-amber-300/20 text-xs text-amber-100">แนะนำฟรี 15 นาที</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-amber-400/10 border border-amber-300/20 text-xs text-amber-100">ส่งเข้า LINE อัตโนมัติ</span>
+                        </div>
+                        <div class="mt-8 hidden md:block">
+                            <div class="flex items-center gap-4">
+                                <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&amp;w=200" alt="เกษตรกรอีสาน" class="w-14 h-14 rounded-full object-cover border-2 border-amber-300/30">
+                                <div class="text-sm">
+                                    <div class="text-white font-semibold">อ้ายสมดี - ร้อยเอ็ด</div>
+                                    <div class="text-purple-200/70">"แต่ก่อนฉีดยาทั่วท่ง เดี๋ยวนี้โดรนบอกเป็นจุด ประหยัดคัก ปีนี้ได้เงินเพิ่มสามหมื่น"</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2">
+                        <!-- LINE INTEGRATION INSTRUCTION -->
+                        <div class="mb-4 glass rounded-2xl p-4 border border-amber-300/30 bg-amber-400/5">
+                            <div class="flex gap-2.5">
+                                <div class="w-8 h-8 rounded-lg bg-amber-400/20 border border-amber-300/30 grid place-items-center flex-shrink-0 text-lg">💬</div>
+                                <p class="text-[12.5px] leading-snug text-amber-100/90">
+                                    <span class="font-bold text-amber-200">วิธีเชื่อม LINE:</span> 1) สร้าง LINE OA @aiisaan2026 2) ไปที่ Make.com สร้าง webhook 3) เอา URL มาใส่แทนที่ในโค้ดบรรทัด 245
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <form id="contactForm" class="space-y-3">
+                            <div>
+                                <label class="text-sm text-amber-200/80">ซื้อเอิ้นหยัง</label>
+                                <input type="text" required="" placeholder="เช่น บ่าวเติม สาวแต๋ม" class="w-full mt-1 px-4 py-3 rounded-xl bg-black/30 border border-amber-300/20 text-white placeholder-purple-200/40 focus:outline-none focus:border-amber-300/50 transition">
+                            </div>
+                            <div>
+                                <label class="text-sm text-amber-200/80">เบอร์โทร *</label>
+                                <input type="tel" required="" pattern="0[0-9]{9}" placeholder="08xxxxxxxx" class="w-full mt-1 px-4 py-3 rounded-xl bg-black/30 border border-amber-300/20 text-white placeholder-purple-200/40 focus:outline-none focus:border-amber-300/50 transition">
+                            </div>
+                            <div>
+                                <label class="text-sm text-amber-200/80">เฮ็ดหยังอยู่</label>
+                                <select class="w-full mt-1 px-4 py-3 rounded-xl bg-black/30 border border-amber-300/20 text-white focus:outline-none focus:border-amber-300/50 transition">
+                                    <option>ข้าวหอมมะลิ</option>
+                                    <option>มันสำปะหลัง</option>
+                                    <option>อ้อย</option>
+                                    <option>ยางพารา</option>
+                                    <option>ข้าวเหนียว</option>
+                                    <option>อื่นๆ</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-sm text-amber-200/80">อยากถามหยัง</label>
+                                <textarea rows="3" placeholder="เช่น อยากฮู้เรื่องโดรนพ่นยา..." class="w-full mt-1 px-4 py-3 rounded-xl bg-black/30 border border-amber-300/20 text-white placeholder-purple-200/40 focus:outline-none focus:border-amber-300/50 transition"></textarea>
+                            </div>
+                            <button type="submit" class="group w-full px-6 py-4 rounded-2xl bg-gradient-to-r from-amber-400 to-yellow-500 text-purple-950 font-bold text-center shadow-[0_10px_30px_-10px_rgba(250,204,21,0.7)] hover:brightness-110 transition flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="group-hover:animate-bounce"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                ขอคำแนะนำฟรีเด้อ
+                            </button>
+                            <p class="text-[11px] text-center text-purple-300/60">ข้อมูลสิส่งเข้า LINE @aiisaan2026 อัตโนมัติ บ่เอาไปขายเด้อ</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="mt-20 pb-12">
+            <div class="glass rounded-3xl p-8 md:p-10 border-amber-300/20">
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div>
+                        <div class="flex items-center gap-2.5 mb-3">
+                            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-300 to-yellow-500 grid place-items-center text-purple-950 font-black text-sm">AI</div>
+                            <div class="font-bold text-white">aiisaan2026.com</div>
+                        </div>
+                        <p class="text-sm text-purple-200/75 leading-relaxed">โครงการแบ่งปันความรู้เอไอให้พี่น้องอีสาน — เว้าอีสานล้วน ใช้ง่าย ได้เงินแต้</p>
+                    </div>
+                    <div>
+                        <div class="text-sm font-semibold text-amber-200 mb-3 uppercase tracking-widest">ติดต่อเฮา</div>
+                        <ul class="space-y-2 text-sm text-purple-200/80">
+                            <li>อีเมล: hello@aiisaan2026.com</li>
+                            <li>ศูนย์เอไอเพื่อชุมชน ม.ขอนแก่น</li>
+                            <li>LINE OA: @aiisaan2026</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="text-sm font-semibold text-amber-200 mb-3 uppercase tracking-widest">ที่มาข้อมูล</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-xs">RICEST</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-xs">GISTDA</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-xs">สศก.</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-xs">Deloitte</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-xs">Alithya</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-purple-300/60">
+                    <div>© 2026 aiisaan2026.com — เฮ็ดโดยคนอีสานเพื่อคนอีสาน</div>
+                    <div>ภาษาอีสาน 100% • เบิ่งในมือถือกะงามคัก</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] pointer-events-none transition-all duration-500 translate-y-20 opacity-0">
+        <div class="glass rounded-2xl px-6 py-4 border-amber-300/40 shadow-2xl flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-gradient-to-br from-amber-300 to-yellow-500 grid place-items-center text-purple-950 font-bold">✓</div>
+            <div>
+                <div class="font-semibold text-white">ขอบคุณหลายเด้อ!</div>
+                <div class="text-sm text-amber-100/80">ทีมงานสิโทรหาเจ้าภายใน 24 ชั่วโมงจ้า</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+        // Reveal cards
+        const cards = document.querySelectorAll('.card');
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        cards.forEach(c => io.observe(c));
+
+        // Mouse glow
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('pointermove', (e) => {
+                const r = card.getBoundingClientRect();
+                card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+                card.style.setProperty('--my', `${e.clientY - r.top}px`);
+            });
+        });
+
+        // Contact form - LINE @aiisaan2026 Integration
+        const toast = document.getElementById('toast');
+        const toastTitle = toast.querySelector('.font-semibold');
+        const toastMsg = toast.querySelector('.text-sm');
+        const toastIcon = toast.querySelector('.w-9');
+
+        function showToast(title, message, success = true){
+            toastTitle.textContent = title;
+            toastMsg.textContent = message;
+            toastIcon.textContent = success ? '✓' : '!';
+            toastIcon.className = `w-9 h-9 rounded-full grid place-items-center text-purple-950 font-bold ${success ? 'bg-gradient-to-br from-amber-300 to-yellow-500' : 'bg-gradient-to-br from-red-400 to-orange-500'}`;
+            toast.classList.remove('translate-y-20','opacity-0','pointer-events-none');
+            setTimeout(()=>{ toast.classList.add('translate-y-20','opacity-0'); }, 4500);
+        }
+
+        document.getElementById('contactForm')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnHTML = submitBtn.innerHTML;
+
+            const data = {
+                name: form.querySelector('input[type=text]').value.trim(),
+                phone: form.querySelector('input[type=tel]').value.trim(),
+                crop: form.querySelector('select').value,
+                message: form.querySelector('textarea').value.trim(),
+                source: 'aiisaan2026.com',
+                time: new Date().toLocaleString('th-TH', { timeZone: 'Asia/Bangkok' })
+            };
+
+            // ===== ตั้งค่า LINE WEBHOOK ตรงนี้ (บรรทัด 245) =====
+            const WEBHOOK_URL = "https://your-make-webhook-or-appscript-url"; // วาง URL จาก Make.com หรือ Google Apps Script แทนที่ตรงนี้เด้อ
+
+            // แสดงสถานะกำลังส่ง
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<svg class="animate-spin" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10" stroke-opacity="0.25"/><path d="M12 2a10 10 0 0 1 10 10"/></svg> กำลังส่ง...`;
+
+            try {
+                // ถ้ายังบ่ได้ใส่ URL จริง ให้จำลองส่งสำเร็จ (สำหรับเดโม)
+                if (WEBHOOK_URL.includes('your-make-webhook')) {
+                    console.log('DEMO MODE - LINE Lead:', data);
+                    await new Promise(r => setTimeout(r, 900));
+                    showToast('สำเร็จคัก!', 'ส่งข้อมูลเข้า LINE @aiisaan2026 แล้วเด้อ! ทีมงานสิทักไป', true);
+                    form.reset();
+                } else {
+                    const res = await fetch(WEBHOOK_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+                    if (!res.ok) throw new Error('Webhook error');
+                    showToast('สำเร็จคัก!', 'ส่งข้อมูลเข้า LINE @aiisaan2026 แล้วเด้อ! ทีมงานสิทักไป', true);
+                    form.reset();
+                }
+            } catch (err) {
+                console.error('LINE webhook failed:', err);
+                showToast('โอ๊ะ! ส่งบ่ได้', 'เน็ตมีปัญหาชั่วคราวเด้อ ลองอีกเทื่อ หรือแอด LINE @aiisaan2026 ทักมาเลย', false);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnHTML;
+            }
+        });
+
+        window.addEventListener('load', () => setTimeout(() => cards.forEach(c => c.classList.add('in')), 80));
+    </script>
+<script>(function(){document.addEventListener("click",function(e){var a=e.target.closest("[data-product-id]");if(!a)return;e.preventDefault();var pid=a.getAttribute("data-product-id");if(pid)parent.postMessage({type:"ecto-artifact-link-click",productId:pid},"*")})})();</script>
+
+</body></html>
